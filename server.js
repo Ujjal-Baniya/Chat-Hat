@@ -2,12 +2,13 @@ const express = require("express");
 const path = require("path");
 const http = require('http');
 const socketio = require("socket.io");
-const { Socket } = require("dgram");
+const formatMessage = require("./utils/messages");
 
 
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+const botName = "ChatHat Bot";
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -16,20 +17,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 io.on("connect", socket => {
 
     // Welcome new user
-    socket.emit('message',"Welcome to Chat-Hat")
+    socket.emit('message', formatMessage(botName, "Welcome to Chat-Hat"));
 
     // broadcast when user enters 
-    socket.broadcast.emit("message", "A user has joined the chat")
+    socket.broadcast.emit("message", formatMessage(botName, "A user has joined the chat"));
 
     // run when user disconnect
     socket.on("disconnect", ()=>{
-        io.emit("message", "A user has left the chat")
+        io.emit("message", formatMessage(botName, "A user has left the chat"));
     }) 
 
     // listen for chat message
     socket.on("chatMessage", (msg)=>{
-        console.log(msg)
-        io.emit("message", msg)
+        console.log(msg);
+        io.emit("message",formatMessage("USER", msg));
     })
 })
 

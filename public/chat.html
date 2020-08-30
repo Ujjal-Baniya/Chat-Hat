@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Hat</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/chat.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="chat-container">    
+        <header class="chat-header">
+            <h1><i class="fa fa-envelope" aria-hidden="true"></i>ChatHat</h1>
+        </header>
+        <h3>Room ID:<span id="room-name"></span></h3>
+        <main class="chat-main">
+              <div class="chat-messages"> </div>
+              <div class="sidebar">
+                <h3 id="usr"><i class="fa fa-users" aria-hidden="true"></i>Users</h3>
+                <ul id="users">
+                  <li>shirshak</li>
+                </ul>
+              </div>
+        </main>
+          <div class="chat-form-container">
+            <form id="chat-form">
+              <input
+                id="msg"
+                type="text"
+                placeholder="Enter Message"
+                required
+                autocomplete="off"
+              />
+              <button class="btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Send</button>
+            </form> 
+          </div>
+        </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js" 
+    integrity="sha512-BHtomM5XDcUy7tDNcrcX1Eh0RogdWiMdXl3wJcKB3PFekXb3l5aDzymaTher61u6vEZySnoC/SAj2Y/p918Y3w==" 
+    crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -2,24 +2,35 @@ const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('.chat-messages');
 const roomName = document.getElementById('room-name');
 const userList = document.getElementById('users');
+const html = document.querySelector('html');
 
 // Get username and room from URL
-var { username, room } = Qs.parse(location.search, {
+var { username, room ,check, RoomID} = Qs.parse(location.search, {
   ignoreQueryPrefix: true
 });
 const socket = io();
+
 
 // Join chatroom
 if (room=="Public"){
   socket.emit('joinRoom', { username, room });
 }
 else{
-  const { username, RoomID } = Qs.parse(location.search, {
-    ignoreQueryPrefix: true
-  });
-  room = RoomID
-  console.log(username, room);
-  socket.emit('joinRoom', { username, room });
+    if(check=="no"){
+      room = RoomID;
+      socket.emit('validity', { username, room });
+      socket.on('sucess',()=>{
+        socket.emit('joinRoom', { username, room });
+      })
+      socket.on('failed',()=>{
+          html.innerHTML = `<strong>Page NOT Found</strong>`
+      })
+    }
+    else{
+      room = check
+      socket.emit('addRoom', room)
+      socket.emit('joinRoom', { username, room });
+    }
 }
 
 // Get room and users
@@ -30,7 +41,6 @@ socket.on('roomUsers', ({ room, users }) => {
 
 // Message from server
 socket.on('message', message => {
-  console.log(message);
   outputMessage(message);
 
   // Scroll down

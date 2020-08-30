@@ -13,6 +13,7 @@ const {
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+const rooms = new Set();
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -21,6 +22,23 @@ const botName = 'ChatHat Bot';
 
 // Run when client connects
 io.on('connection', socket => {
+  // Adding new room
+  socket.on('addRoom', (room) =>{
+    rooms.add(room);
+  })
+
+  // sending roomIDs
+  socket.on('validity', ({ username, room })=>{
+    if(rooms.has(room)){
+      socket.emit('sucess');
+    }
+    else{
+      socket.emit('failed');
+    }
+    
+  });
+
+  // joining room
   socket.on('joinRoom', ({ username, room }) => {
     const user = userJoin(socket.id, username, room);
 

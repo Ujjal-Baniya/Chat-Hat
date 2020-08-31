@@ -146,3 +146,10 @@ label .fa:hover{
   width: 100%;
   padding-left: 20px;
 }
+
+@media only screen and (max-width: 500px) {
+  .warper{
+    width: 400px;
+    height: 94vh;
+  }
+}

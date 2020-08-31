@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gayathri:wght@700&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -48,18 +50,24 @@ h3{
     padding-top: 10px;
     text-align: center;
     max-width: 800px;
-    font-style: italic;
+    letter-spacing: 0.08em;
     font-size: 1.3em;
     cursor: default;
+    color: royalblue;
 }
 
 #room-name{
+    padding-left: 0.5em;
     letter-spacing: 0.1em;
     font-size: 1.5em;
     font-style: normal;
     cursor: pointer;
     color: rgba(255, 0, 0, 0.829);
 }
+#room-name:hover{
+    color: royalblue;
+}
+
 
 .chat-messages{
     width: 800px;
@@ -80,7 +88,6 @@ h3{
 
 ul{
     list-style: none;
-    text-align: end;
     /* padding-left: ; */
 }
 #usr{
@@ -91,8 +98,12 @@ ul{
     text-align: center;
     margin: 0px auto;
     display: block;
+    letter-spacing: 0.2em;
+    color: royalblue;
 }
-
+#usr:hover{
+    color: seagreen;
+}
 .chat-messages .message {
     padding: 10px;
     margin-left: 2em ;
@@ -141,3 +152,26 @@ ul{
     background-color: rgba(24, 180, 24, 0.603);
     font-style: italic;
 }
+
+ul li{
+    padding-left: 1.9em;
+    text-align: center;
+    color: rgba(255, 0, 0, 0.829);
+    font-size: 1.5em;
+    letter-spacing: 0.05;
+    font-family: 'Gayathri', sans-serif;
+    cursor: pointer;
+}
+ul li:hover{
+    color: royalblue;
+}
+
+
+/* bolo bolo bolo bol bachhan */
+
+@media only screen and (max-width: 500px) {
+    .warper{
+      width: 400px;
+      height: 94vh;
+    }
+  }

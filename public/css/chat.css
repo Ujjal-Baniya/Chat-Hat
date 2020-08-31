@@ -170,8 +170,36 @@ ul li:hover{
 /* bolo bolo bolo bol bachhan */
 
 @media only screen and (max-width: 500px) {
-    .warper{
-      width: 400px;
-      height: 94vh;
+    .chat-header{
+        width: 100vw;
     }
-  }
+    h3{
+        width: 100vw;
+    }
+    .chat-messages{
+    width: 80vw;
+    }
+    #usr{
+        width: 20vw;
+        padding: 0 0;
+        font-size: 1em;
+        letter-spacing: 0;
+    }
+    .chat-form-container input[type='text'] {
+        width: 74vw;
+    }
+    .chat-form-container {
+        padding-left: 10px;
+        padding-top: 0.3em;
+    }
+    .btn {
+        height: 2em;
+        width: 18vw;
+        margin-left: 0.1em;
+        border-radius: 8px;
+    }
+    .chat-container{
+        height: 96vh;
+        width: 100%;
+    }
+}

@@ -60,6 +60,9 @@ body{
                 inset -8px -8px 8px #ffffff;
     width: 100%;
     padding-left: 20px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    text-transform: capitalize;
   }
 
 
@@ -94,6 +97,7 @@ body{
 
   .option input{
       appearance: none;
+      -webkit-appearance: none;
   }
 
   .cont{

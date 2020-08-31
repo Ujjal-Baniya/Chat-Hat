@@ -16,6 +16,7 @@ body{
 }
 
 .warper{
+    height: 100vh;
     width:430px;
     height: 90vh;
     padding: 60px 35px 35px 35px;
@@ -147,6 +148,15 @@ label .fa:hover{
   padding-left: 20px;
 }
 
+a
+{
+  width: 100%;
+  font-size: 1em;
+  padding-top: 5px;
+}
+#git{
+  text-align: center;
+}
 @media only screen and (max-width: 500px) {
   .warper{
     width: 400px;

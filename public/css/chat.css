@@ -199,7 +199,12 @@ ul li:hover{
         border-radius: 8px;
     }
     .chat-container{
-        height: 96vh;
+        height: 100vh;
         width: 100%;
+    }
+    ul li{
+        padding-top: 3px;
+        padding-left:0;
+        font-size: 0.9em;
     }
 }

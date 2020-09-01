@@ -48,11 +48,12 @@ io.on('connection', socket => {
     socket.emit('message', formatMessage(botName, `${user.username} Welcome to ChatHat!`));
 
     // Broadcast when a user connects
+    var username = user.username
+    var des = 1
     socket.broadcast
       .to(user.room)
       .emit(
-        'message',
-        formatMessage(botName, `${user.username} has joined the chat`)
+        'message-joinedleft',({ username, des})
       );
 
     // Send users and room info
@@ -73,13 +74,15 @@ io.on('connection', socket => {
     const user = userLeave(socket.id);
     
     if (user) {
+      var des = 0
+      var username = user.username
       io.to(user.room).emit(
-        'message',
-        formatMessage(botName, `${user.username} has left the chat`)
+        'message-joinedleft',({username, des})
       );
       if (user.host===1){
         rooms.delete(user.room)
-        }
+        io.to(user.room).emit('host-left')
+      }
       // Send users and room info
       io.to(user.room).emit('roomUsers', {
         room: user.room,

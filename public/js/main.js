@@ -45,6 +45,11 @@ socket.on('roomUsers', ({ room, users }) => {
 socket.on('message', message => {
   outputMessage(message);
 
+
+// when user join and leave chat
+socket.on('message-joinedleft', ({username, des})=>{
+  joinleft(username, des);
+})
   // Scroll down
   chatMessages.scrollTop = chatMessages.scrollHeight;
 });
@@ -65,7 +70,13 @@ chatForm.addEventListener('submit', e => {
 });
 
 // Host left
-
+socket.on('host-left',()=>{
+  chatForm.innerHTML = ``
+  const span = document.createElement('span');
+  span.classList.add('joined-left');
+  span.innerHTML = `Host has left the room. Please host a  <a href="https://chat-hat.herokuapp.com">new room</a>`
+  document.querySelector('.chat-messages').appendChild(span);
+})
 
 
 // Output message to DOM
@@ -77,6 +88,19 @@ function outputMessage(message) {
     ${message.text}
   </p>`;
   document.querySelector('.chat-messages').appendChild(div);
+}
+
+// user join-left
+function joinleft(message, des){
+  const span = document.createElement('span');
+  span.classList.add('joined-left');
+  if(des==1){
+    span.innerHTML = `${message} joined the chat`
+    }
+  else{
+    span.innerHTML = `${message} left the chat`
+  }
+  document.querySelector('.chat-messages').appendChild(span);
 }
 
 // Add room name to DOM

@@ -138,6 +138,15 @@ ul{
     border: none;
     border-radius: 10px;
 }
+.joined-left{
+    text-shadow: -1px 1px 2px;
+    color: maroon;
+    font-style: oblique;
+    text-align: center;
+    font-size: 1.05em;
+    padding-top: 10px;
+    display: inherit;
+}
 
 .btn{
     border: none;

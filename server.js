@@ -1,7 +1,6 @@
 const path = require('path');
 const http = require('http');
 const express = require('express');
-const reload = require('reload')
 const socketio = require('socket.io');
 const formatMessage = require('./utils/messages');
 const {

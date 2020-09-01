@@ -4,7 +4,7 @@
   "description": "A realtime chat app which allows users to chat gloablly or have private chats for certian amount of time.",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "start": "node server.js",
     "dev":"nodemon server"
   },
   "repository": {

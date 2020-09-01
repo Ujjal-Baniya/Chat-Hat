@@ -10,17 +10,18 @@ var { username, room ,check, RoomID} = Qs.parse(location.search, {
 });
 const socket = io();
 
-
 // Join chatroom
 if (room=="Public"){
-  socket.emit('joinRoom', { username, room });
+  var host = 0
+  socket.emit('joinRoom', { username, room, host });
 }
 else{
     if(check=="no"){
       room = RoomID;
       socket.emit('validity', { username, room });
       socket.on('sucess',()=>{
-        socket.emit('joinRoom', { username, room });
+        host = 0
+        socket.emit('joinRoom', { username, room, host});
       })
       socket.on('failed',()=>{
           html.innerHTML = `<strong>Page NOT Found</strong>`
@@ -28,8 +29,9 @@ else{
     }
     else{
       room = check
+      host = 1
       socket.emit('addRoom', room)
-      socket.emit('joinRoom', { username, room });
+      socket.emit('joinRoom', { username, room , host});
     }
 }
 
@@ -61,6 +63,10 @@ chatForm.addEventListener('submit', e => {
   e.target.elements.msg.value = '';
   e.target.elements.msg.focus();
 });
+
+// Host left
+
+
 
 // Output message to DOM
 function outputMessage(message) {

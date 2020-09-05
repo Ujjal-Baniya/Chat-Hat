@@ -147,7 +147,14 @@ ul{
     padding-top: 10px;
     display: inherit;
 }
-
+.wishper{
+    height: 100%;
+    width: 100%;
+    vertical-align: bottom;
+    display: inline-block;
+    text-align: center;
+    line-height: 130vh;
+}
 .btn{
     border: none;
     background-color: rgba(70, 131, 180, 0.384);
@@ -197,7 +204,7 @@ ul li:hover{
         letter-spacing: 0;
     }
     .chat-form-container input[type='text'] {
-        width: 74vw;
+        width: 73vw;
     }
     .chat-form-container {
         padding-left: 10px;
@@ -230,5 +237,15 @@ ul li:hover{
         margin-left: 1em;
         margin-right: 1em;
 
+    }
+}
+
+@media only screen and (max-width: 1013px){
+    .chat-container{
+        width: 95vw;
+        height: 100vh;
+    }
+    .chat-form-container input[type='text']{
+        width: 70vw;
     }
 }

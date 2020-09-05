@@ -74,7 +74,8 @@ socket.on('host-left',()=>{
   chatForm.innerHTML = ``
   const span = document.createElement('span');
   span.classList.add('joined-left');
-  span.innerHTML = `Host has left the room. Please host a  <a href="https://chat-hat.herokuapp.com">new room</a>`
+  span.innerHTML = `Host has left the room or disconnected. Please host a  <a href="https://chat-hat.herokuapp.com">new room</a>.
+                    <br>Or wait till Host re-joins`
   document.querySelector('.chat-messages').appendChild(span);
 })
 
@@ -102,6 +103,15 @@ function joinleft(message, des){
   }
   document.querySelector('.chat-messages').appendChild(span);
 }
+
+// whisper
+// var whisper = document.getElementById('msg')
+// whisper.addEventListener('change',()=>{
+//   const span = document.createElement('span');
+//   span.classList.add('wishper');
+//   span.innerHTML = `someone is typing`
+//   document.querySelector('.chat-messages').appendChild(span);
+// })
 
 // Add room name to DOM
 function outputRoomName(room) {

@@ -1,9 +1,9 @@
 # Table of content
-- ## ✍️ [Description](#Chat-Hat)
-- ## 👻 [Features](#features)
-- ## ✊ [Support](#support)
-- ## 📖 [License and CopyRight](#license)
-- ## 🖥️ [How to use](#use)
+- ### ✍️ [Description](#Chat-Hat)
+- ### 👻 [Features](#features)
+- ### ✊ [Support](#support)
+- ### 📖 [License and CopyRight](#license)
+- ### 🖥️ [How to use](#use)
 <!-- - ## 🖥️ [Live Demo](#demo) -->
 
 # [Chat-Hat](https://chat-hat.herokuapp.com/ "visit")

@@ -67,6 +67,7 @@ chatForm.addEventListener('submit', e => {
   // Clear input
   e.target.elements.msg.value = '';
   e.target.elements.msg.focus();
+
 });
 
 // Host left
@@ -105,13 +106,24 @@ function joinleft(message, des){
 }
 
 // whisper
-// var whisper = document.getElementById('msg')
-// whisper.addEventListener('change',()=>{
-//   const span = document.createElement('span');
-//   span.classList.add('wishper');
-//   span.innerHTML = `someone is typing`
-//   document.querySelector('.chat-messages').appendChild(span);
-// })
+messagebox = document.getElementById('msg')
+whisper = document.getElementById('whisper')
+messagebox.addEventListener("keypress", () =>  {          
+  socket.emit("typing");
+  });
+
+  socket.on("notifyTyping",({user})=>{
+   
+    whisper.innerHTML = `<strong id="nam">${user}</strong> is typing....`
+  })
+
+  messagebox.addEventListener("keyup", () =>  {
+    socket.emit("stopTyping", "");
+    });
+
+socket.on("notifyStopTyping", () =>  {
+  whisper.innerHTML  =  `<span id="hide">Typing Notification</span>`;
+  });
 
 // Add room name to DOM
 function outputRoomName(room) {

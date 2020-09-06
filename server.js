@@ -47,6 +47,16 @@ io.on('connection', socket => {
     // Welcome current user
     socket.emit('message', formatMessage(botName, `${user.username} Welcome to ChatHat!`));
 
+
+    // whisper
+    socket.on('typing',()=>{
+      io
+      .to(user.room)
+      .emit("notifyTyping", ({user : user.username}) ); 
+    }); 
+
+    socket.on("stopTyping", () => { io.to(user.room).emit("notifyStopTyping"); });
+
     // Broadcast when a user connects
     var username = user.username
     var des = 1

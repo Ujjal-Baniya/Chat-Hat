@@ -12,7 +12,7 @@ body{
 
 .chat-container{
     border-radius: 10px;
-    height: 93vh;
+    height: 95vh;
     width: 1000px;
     margin: 10px auto;
     background-color: #ecf0f3;
@@ -239,6 +239,16 @@ ul li:hover{
 
     }
 }
+
+#hide{
+    opacity: 0;
+}
+#nam{
+    margin-left: 2em;
+    color: red;
+}
+
+
 
 @media only screen and (max-width: 1013px){
     .chat-container{

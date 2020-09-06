@@ -50,12 +50,12 @@ io.on('connection', socket => {
 
     // whisper
     socket.on('typing',()=>{
-      io
+      socket.broadcast
       .to(user.room)
       .emit("notifyTyping", ({user : user.username}) ); 
     }); 
 
-    socket.on("stopTyping", () => { io.to(user.room).emit("notifyStopTyping"); });
+    socket.on("stopTyping", () => { socket.broadcast.to(user.room).emit("notifyStopTyping"); });
 
     // Broadcast when a user connects
     var username = user.username

@@ -48,14 +48,14 @@ io.on('connection', socket => {
     socket.emit('message', formatMessage(botName, `${user.username} Welcome to ChatHat!`));
 
 
-    // whisper
-    socket.on('typing',()=>{
-      socket.broadcast
-      .to(user.room)
-      .emit("notifyTyping", ({user : user.username}) ); 
-    }); 
+    // // whisper
+    // socket.on('typing',()=>{
+    //   socket.broadcast
+    //   .to(user.room)
+    //   .emit("notifyTyping", ({user : user.username}) ); 
+    // }); 
 
-    socket.on("stopTyping", () => { socket.broadcast.to(user.room).emit("notifyStopTyping"); });
+    // socket.on("stopTyping", () => { socket.broadcast.to(user.room).emit("notifyStopTyping"); });
 
     // Broadcast when a user connects
     var username = user.username

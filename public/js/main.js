@@ -106,24 +106,24 @@ function joinleft(message, des){
 }
 
 // whisper
-messagebox = document.getElementById('msg')
-whisper = document.getElementById('whisper')
-messagebox.addEventListener("keypress", () =>  {          
-  socket.emit("typing");
-  });
+// messagebox = document.getElementById('msg')
+// whisper = document.getElementById('whisper')
+// messagebox.addEventListener("keypress", () =>  {          
+//   socket.emit("typing");
+//   });
 
-  socket.on("notifyTyping",({user})=>{
+//   socket.on("notifyTyping",({user})=>{
    
-    whisper.innerHTML = `<strong id="nam">${user}</strong> is typing....`
-  })
+//     whisper.innerHTML = `<strong id="nam">${user}</strong> is typing....`
+//   })
 
-  messagebox.addEventListener("keyup", () =>  {
-    socket.emit("stopTyping", "");
-    });
+//   messagebox.addEventListener("keyup", () =>  {
+//     socket.emit("stopTyping", "");
+//     });
 
-socket.on("notifyStopTyping", () =>  {
-  whisper.innerHTML  =  `<span id="hide">Typing Notification</span>`;
-  });
+// socket.on("notifyStopTyping", () =>  {
+//   whisper.innerHTML  =  `<span id="hide">Typing Notification</span>`;
+//   });
 
 // Add room name to DOM
 function outputRoomName(room) {

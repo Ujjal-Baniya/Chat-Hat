@@ -8,14 +8,14 @@
 
 # [Chat-Hat](https://chat-hat.herokuapp.com/ "visit")
 
-#### A **chatHat app** is a realtime chat app. This is developed using Node Js for backend and HTML, CSS and vanilla Javascript is used for front end.<br> SocketIO is used for sending and receiving messages and Express is used to initalize sever.
+#### A **chatHat** app is a realtime chat app. This is developed using Node Js for backend and HTML, CSS and vanilla Javascript is used for the front end. SocketIO is used for sending and receiving messages and Express is used to initialize sever.
 
 
 # Features
-- #### Public Room is accessible to everyone.
-- #### Private Room is secured. User can create Room and get unique RoomID.
-- #### RoomID is randomly created and different from one another.
-- #### Private Room will be closed if host leave the chat.
+- #### The public Room is accessible to everyone. 
+- #### The private room is secured. User can create a Room and get a unique Room ID. 
+- #### A Room ID is randomly created and is different from one another. 
+- #### The private room will be closed if the host leaves the chat.
 
 # Support 
 - #### **Give star :)** ⭐
